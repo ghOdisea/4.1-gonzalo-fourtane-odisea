@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./dist/http.js",
+    "dev": "nodemon ./dist/routes/routing.js",
     "test": "test"
   },
   "keywords": [],
