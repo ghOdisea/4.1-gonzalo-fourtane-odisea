@@ -4,14 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./dist/routes/routing.js",
-    "test": "test"
+    "start": "tsc && node ./dist/application/server.js",
+    "dev": "tsc && \" nodemon ./dist/application/server.js\" ",
+    "dev:tsc": "tsc && concurrently \"tsc -w\" \" nodemon ./dist/application/server.js\" ",
+    "test": "test",
+    "bun:dev": "bun run --watch src/application/server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^4.17.21",
+    "bun": "^1.1.0",
+    "concurrently": "^8.2.2",
     "nodemon": "^3.1.0",
     "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "express": "4.19.2"
   }
 }

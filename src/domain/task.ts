@@ -1,13 +1,11 @@
 export default class Task {
+    id: string
     description: string
     completed: boolean
 
-    constructor(description : string){
+    constructor(id: string, description: string){
+        this.id = id
         this.description = description
         this.completed = false
-    }
-
-    check(){
-        this.completed = !this.completed
     }
 }
