@@ -7,6 +7,7 @@ export class TaskController{
 
     getTasks(req: Request, res: Response){
         const tasks =  taskService.getAllTasks()
+        console.log('controller', tasks)
         res.status(200).json(tasks)
     }
 

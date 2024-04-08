@@ -29,17 +29,17 @@ export const tasks : Task [] = [
     }
 ]
 
-export class InMemoryTaskRepository implements TaskRepository{
+export class InMemoryTaskRepository implements TaskRepository {
 
     async getAllTasks():Promise<Task[]>{
+        console.log('Se han solicitado todas las tareas')
+        console.log(tasks)
         return tasks
     }
 
-    async getTaskById(taskID: string): Promise <Task> {
+    async getTaskById(taskID: string): Promise <Partial<Task>> {
         // const task = tasks.find((task) => { taskID === task.id})
         // if(!task){ return null }
-        return tasks.find((task) => { taskID === task.id}) as Task
+        return tasks.find((task) => { task.id === taskID}) as Task
     }
-
-
 }
