@@ -1,6 +1,6 @@
-import Task from "./task";
+import type Task from './task'
 
-export interface TaskRepository{
-    getTaskById(taskID: string ): Promise<Partial<Task>>
-    getAllTasks(): Promise<Task[]>
+export interface TaskRepository {
+  getAllTasks: () => Promise <Task[]>
+  getTaskById: (taskID: string) => Promise< Partial<Task>>
 }

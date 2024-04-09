@@ -1,19 +1,16 @@
-import { TaskController } from "../controllers/task.controller";
-import { BaseRouter } from "./router";
+import Task from '../../domain/task'
+import { TaskController } from '../controllers/task.controller'
+import { BaseRouter } from './router'
 
-export class TaskRouter extends BaseRouter<TaskController>{
+export class TaskRouter extends BaseRouter<TaskController> {
+  constructor () {
+    super(TaskController)
+  }
 
-    constructor(){
-        super(TaskController)
-    }
-//función de la base usandola desde el task router.
-    routes(): void {
-        //Devuelve todas las tareas
-        this.router.get('/tasks', (req, res) => this.controller.getTasks(req, res))
-        
-        //Devuelve tarea segun id
-        this.router.get('/task/:id', (req, res) => this.controller.getTaskById(req, res))
-        
-        // this.router.post('/task', (req, res) => this.controller.checkTask(req, res))
-    }
+  // función de la base usandola desde el task router.
+  routes (): void { // Devuelve todas las tareas
+    this.router.get('/tasks', (req, res) => { this.controller.getTasks(req, res) })
+    // Devuelve tarea segun id
+    this.router.get('/task/:id', (req, res) => { this.controller.getTaskById(req, res) })
+  }
 }
