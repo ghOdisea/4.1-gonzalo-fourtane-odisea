@@ -11,10 +11,27 @@ export class TaskService {
     return tasks
   }
 
-  async getTaskById (taskID: string): Promise<Partial<Task>> {
+  async getTaskById (taskID: number): Promise<Task | undefined> {
     const task = await this.taskRepository.getTaskById(taskID)
-    // if(!task){throw new Error(`Task not found: ${task}`)}
-    console.log(task)
     return task
+  }
+
+  async createTask (id: number, description: string): Promise<Task | undefined> {
+    const task = await this.taskRepository.createTask(id, description)
+
+    if (task === undefined) return undefined
+
+    return task
+  }
+
+  async deleteTask (id: number): Promise<boolean> {
+    const deletedTask = await this.taskRepository.deleteTask(id)
+    return deletedTask
+  }
+
+  async updateTask (id: number): Promise<Task | undefined> {
+    const updatedTask = await this.taskRepository.updateTask(id)
+    console.log('task updated')
+    return updatedTask
   }
 }
