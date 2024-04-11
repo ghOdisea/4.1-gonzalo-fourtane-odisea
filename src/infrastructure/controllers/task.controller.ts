@@ -38,7 +38,7 @@ export class TaskController {
     const deleteId = Number(req.params.id)
     const deletedTask = taskService.deleteTask(deleteId)
     console.log('control new Task', deletedTask) // control delete Task Promise { <pending> }
-    res.status(204).end()
+    res.status(200).end('Tarea eliminada')
   }
 
   async updateTask (req: Request, res: Response): Promise<void> {

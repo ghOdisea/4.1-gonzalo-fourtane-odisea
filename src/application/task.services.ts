@@ -13,6 +13,7 @@ export class TaskService {
 
   async getTaskById (taskID: number): Promise<Task | undefined> {
     const task = await this.taskRepository.getTaskById(taskID)
+    console.log('service', task)
     return task
   }
 
