@@ -1,0 +1,131 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Sprint 4 - HTTP Requests",
+    "dateExported": "2024-04-11T08:23:27.983Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "40021555-2ee9-473e-999c-40348ed5dbb3",
+            "colId": "30e31939-1253-476a-b57d-0e2725483467",
+            "containerId": "",
+            "name": "http://localhost:3000",
+            "url": "http://localhost:3000/api/tasks",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-04-09T19:47:05.389Z",
+            "modified": "2024-04-09T19:47:05.389Z",
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "id",
+                        "value": "10"
+                    },
+                    {
+                        "name": "description",
+                        "value": "Nueva tarea 10"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "02090450-8d87-46ee-a370-0434ca5a9090",
+            "colId": "30e31939-1253-476a-b57d-0e2725483467",
+            "containerId": "",
+            "name": "https://localhost:3000/api/task/1",
+            "url": "http://localhost:3000/api/task/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-04-09T19:47:17.857Z",
+            "modified": "2024-04-09T19:47:17.857Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c2d150e8-e0f0-4479-9fea-95dd0c84cdfb",
+            "colId": "30e31939-1253-476a-b57d-0e2725483467",
+            "containerId": "",
+            "name": "http://localhost:3000",
+            "url": "http://localhost:3000/api/task/add",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-04-09T19:48:11.790Z",
+            "modified": "2024-04-09T19:48:11.790Z",
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "id",
+                        "value": "10"
+                    },
+                    {
+                        "name": "description",
+                        "value": "Nueva tarea 10"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "1b1459ea-ffa0-4755-904a-db4d115e194f",
+            "colId": "30e31939-1253-476a-b57d-0e2725483467",
+            "containerId": "",
+            "name": "http://localhost:3000",
+            "url": "http://localhost:3000/api/task/3",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-04-09T19:49:27.890Z",
+            "modified": "2024-04-09T19:49:27.890Z",
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f0c4d7bb-71bd-4b12-ad57-f4c35e66faad",
+            "colId": "30e31939-1253-476a-b57d-0e2725483467",
+            "containerId": "",
+            "name": "http://localhost:3000",
+            "url": "http://localhost:3000/api/task/4",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-04-09T19:50:00.682Z",
+            "modified": "2024-04-09T19:50:00.682Z",
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
