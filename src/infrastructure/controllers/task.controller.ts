@@ -50,4 +50,15 @@ export class TaskController {
       res.status(404).end('Tarea no encontrada')
     }
   }
+
+  async updateTask (req: Request, res: Response): Promise<void> {
+    const updateId = Number(req.body.id)
+    const updateDesc = String(req.body.description)
+    const updateTask = taskService.updateTask(updateId, updateDesc)
+    if (updateTask !== undefined) {
+      res.status(200).json(updateTask)
+    } else {
+      res.status(404).end('Tarea no encontrada')
+    }
+  }
 }

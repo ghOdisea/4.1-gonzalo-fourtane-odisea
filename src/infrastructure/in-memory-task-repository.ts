@@ -78,4 +78,14 @@ export class InMemoryTaskRepository implements TaskRepository {
       console.error('Task not found')
     }
   }
+
+  updateTask (id: number, description: string): Task | undefined {
+    const task = tasks.find(task => task.id === id)
+    if (task !== undefined) {
+      task.description = description
+      return task
+    } else {
+      console.log('Task not found')
+    }
+  }
 }

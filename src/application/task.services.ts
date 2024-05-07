@@ -34,4 +34,9 @@ export class TaskService {
     console.log('task checked')
     return checkedTask
   }
+
+  updateTask (id: number, description: string): Task | undefined {
+    const updatedTask = this.taskRepository.updateTask(id, description)
+    return updatedTask
+  }
 }

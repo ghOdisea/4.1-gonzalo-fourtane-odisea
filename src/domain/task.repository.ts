@@ -6,4 +6,5 @@ export interface TaskRepository {
   createTask: (id: number, description: string) => Task | undefined
   deleteTask: (id: number) => boolean
   checkTask: (id: number) => Task | undefined
+  updateTask: (id: number, description: string) => Task | undefined
 }

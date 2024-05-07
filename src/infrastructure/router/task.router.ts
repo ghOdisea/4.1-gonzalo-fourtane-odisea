@@ -22,5 +22,8 @@ export class TaskRouter extends BaseRouter<TaskController> {
     this.router.patch('/task/:id', (req, res) => {
       void this.controller.checkTask(req, res)
     })
+    this.router.patch('/task', (req, res) => {
+      void this.controller.updateTask(req, res)
+    })
   }
 }
