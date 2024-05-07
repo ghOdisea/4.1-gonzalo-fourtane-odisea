@@ -35,7 +35,7 @@ export class TaskController {
     const deleteId = Number(req.params.id)
     const deletedTask = taskService.deleteTask(deleteId)
     if (deletedTask) {
-      res.status(200).end('Tarea eliminada')
+      res.status(204).end('Tarea eliminada')
     } else {
       res.status(404).end('Tarea no encontrada')
     }
