@@ -31,17 +31,23 @@ export class TaskController {
     }
   }
 
-  // async deleteTask (req: Request, res: Response): Promise<void> {
-  //   const deleteId = Number(req.params.id)
-  //   const deletedTask = taskService.deleteTask(deleteId)
-  //   console.log('control new Task', deletedTask) // control delete Task Promise { <pending> }
-  //   res.status(200).end('Tarea eliminada')
-  // }
+  async deleteTask (req: Request, res: Response): Promise<void> {
+    const deleteId = Number(req.params.id)
+    const deletedTask = taskService.deleteTask(deleteId)
+    if (deletedTask) {
+      res.status(200).end('Tarea eliminada')
+    } else {
+      res.status(404).end('Tarea no encontrada')
+    }
+  }
 
-  // async updateTask (req: Request, res: Response): Promise<void> {
-  //   const updateId = Number(req.params.id)
-  //   const updateTask = taskService.updateTask(updateId)
-  //   console.log('control update', updateTask)
-  //   res.status(200).json(updateTask)
-  // }
+  async checkTask (req: Request, res: Response): Promise<void> {
+    const checkId = Number(req.params.id)
+    const checkTask = taskService.checkTask(checkId)
+    if (checkTask !== undefined) {
+      res.status(200).json(checkTask)
+    } else {
+      res.status(404).end('Tarea no encontrada')
+    }
+  }
 }

@@ -24,14 +24,14 @@ export class TaskService {
     return task
   }
 
-  // async deleteTask (id: number): Promise<boolean> {
-  //   const deletedTask = await this.taskRepository.deleteTask(id)
-  //   return deletedTask
-  // }
+  deleteTask (id: number): boolean {
+    const deletedTask = this.taskRepository.deleteTask(id)
+    return deletedTask
+  }
 
-  // async updateTask (id: number): Promise<Task | undefined> {
-  //   const updatedTask = await this.taskRepository.updateTask(id)
-  //   console.log('task updated')
-  //   return updatedTask
-  // }
+  checkTask (id: number): Task | undefined {
+    const checkedTask = this.taskRepository.checkTask(id)
+    console.log('task checked')
+    return checkedTask
+  }
 }

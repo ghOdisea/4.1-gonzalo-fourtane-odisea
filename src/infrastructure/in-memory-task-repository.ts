@@ -58,24 +58,24 @@ export class InMemoryTaskRepository implements TaskRepository {
     }
   }
 
-  // async deleteTask (id: number): Promise<boolean> {
-  //   const indexDeleteId = tasks.findIndex((task) => task.id === id)
-  //   if (indexDeleteId !== -1) {
-  //     tasks.splice(indexDeleteId, 1)
-  //     return true
-  //   } else {
-  //     console.error('Task not found')
-  //     return false
-  //   }
-  // }
+  deleteTask (id: number): boolean {
+    const indexDeleteId = tasks.findIndex((task) => task.id === id)
+    if (indexDeleteId !== -1) {
+      tasks.splice(indexDeleteId, 1)
+      return true
+    } else {
+      console.error('Task not found')
+      return false
+    }
+  }
 
-  // async updateTask (id: number): Promise<Task | undefined> {
-  //   const task = tasks.find(task => task.id === id)
-  //   if (task !== undefined) {
-  //     task.completed = !task.completed
-  //     return task
-  //   } else {
-  //     console.error('Task not found')
-  //   }
-  // }
+  checkTask (id: number): Task | undefined {
+    const task = tasks.find(task => task.id === id)
+    if (task !== undefined) {
+      task.completed = !task.completed
+      return task
+    } else {
+      console.error('Task not found')
+    }
+  }
 }

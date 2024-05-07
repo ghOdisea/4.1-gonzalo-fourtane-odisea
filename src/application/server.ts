@@ -8,15 +8,14 @@ class ServerBootStrap {
   public port: number = 3000
 
   build (): void {
-    this.app.use(express.json()) // hace la funcion de body parser
+    this.app.use(express.json())
     this.app.use(express.urlencoded({ extended: true }))
     this.app.disable('x-powered-by')
-    this.app.use('/api', this.routers()) // Ejecución de las rutas en /api
+    this.app.use('/api', this.routers())
 
-    this.listen() // Escucha del servidor
+    this.listen()
   }
 
-  // Funcion que al ejecutarse, devuelve la ejecución de todos los routers creados en el array-
   routers (): Router[] {
     return [new TaskRouter().router]
   }
