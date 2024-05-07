@@ -7,32 +7,31 @@ export class TaskService {
   }
 
   async getAllTasks (): Promise<Task[]> {
-    const tasks = await this.taskRepository.getAllTasks()
+    const tasks = this.taskRepository.getAllTasks()
     return tasks
   }
 
-  async getTaskById (taskID: number): Promise<Task | undefined> {
-    const task = await this.taskRepository.getTaskById(taskID)
-    console.log('service', task)
+  getTaskById (taskID: number): Task | undefined {
+    const task = this.taskRepository.getTaskById(taskID)
     return task
   }
 
-  async createTask (id: number, description: string): Promise<Task | undefined> {
-    const task = await this.taskRepository.createTask(id, description)
+  createTask (id: number, description: string): Task | undefined {
+    const task = this.taskRepository.createTask(id, description)
 
     if (task === undefined) return undefined
 
     return task
   }
 
-  async deleteTask (id: number): Promise<boolean> {
-    const deletedTask = await this.taskRepository.deleteTask(id)
-    return deletedTask
-  }
+  // async deleteTask (id: number): Promise<boolean> {
+  //   const deletedTask = await this.taskRepository.deleteTask(id)
+  //   return deletedTask
+  // }
 
-  async updateTask (id: number): Promise<Task | undefined> {
-    const updatedTask = await this.taskRepository.updateTask(id)
-    console.log('task updated')
-    return updatedTask
-  }
+  // async updateTask (id: number): Promise<Task | undefined> {
+  //   const updatedTask = await this.taskRepository.updateTask(id)
+  //   console.log('task updated')
+  //   return updatedTask
+  // }
 }

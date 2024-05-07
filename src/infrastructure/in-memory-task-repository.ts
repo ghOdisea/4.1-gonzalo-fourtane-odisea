@@ -30,11 +30,11 @@ export const tasks: Task[] = [
 ]
 
 export class InMemoryTaskRepository implements TaskRepository {
-  async getAllTasks (): Promise<Task[]> {
+  getAllTasks (): Task[] {
     return tasks
   }
 
-  async getTaskById (taskID: number): Promise<Task | undefined> {
+  getTaskById (taskID: number): Task | undefined {
     const task = tasks.find(task => task.id === taskID)
 
     switch (task) {
@@ -46,7 +46,7 @@ export class InMemoryTaskRepository implements TaskRepository {
     }
   }
 
-  async createTask (id: number, description: string): Promise<Task | undefined > {
+  createTask (id: number, description: string): Task | undefined {
     const validID = tasks.find(task => task.id === id)
     if (validID === undefined) {
       const newTask = new Task(id, description)
@@ -58,24 +58,24 @@ export class InMemoryTaskRepository implements TaskRepository {
     }
   }
 
-  async deleteTask (id: number): Promise<boolean> {
-    const indexDeleteId = tasks.findIndex((task) => task.id === id)
-    if (indexDeleteId !== -1) {
-      tasks.splice(indexDeleteId, 1)
-      return true
-    } else {
-      console.error('Task not found')
-      return false
-    }
-  }
+  // async deleteTask (id: number): Promise<boolean> {
+  //   const indexDeleteId = tasks.findIndex((task) => task.id === id)
+  //   if (indexDeleteId !== -1) {
+  //     tasks.splice(indexDeleteId, 1)
+  //     return true
+  //   } else {
+  //     console.error('Task not found')
+  //     return false
+  //   }
+  // }
 
-  async updateTask (id: number): Promise<Task | undefined> {
-    const task = tasks.find(task => task.id === id)
-    if (task !== undefined) {
-      task.completed = !task.completed
-      return task
-    } else {
-      console.error('Task not found')
-    }
-  }
+  // async updateTask (id: number): Promise<Task | undefined> {
+  //   const task = tasks.find(task => task.id === id)
+  //   if (task !== undefined) {
+  //     task.completed = !task.completed
+  //     return task
+  //   } else {
+  //     console.error('Task not found')
+  //   }
+  // }
 }
