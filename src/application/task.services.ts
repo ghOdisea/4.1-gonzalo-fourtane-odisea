@@ -16,8 +16,8 @@ export class TaskService {
     return task
   }
 
-  createTask (id: number, description: string): Task | undefined {
-    const task = this.taskRepository.createTask(id, description)
+  createTask (description: string): Task | undefined {
+    const task = this.taskRepository.createTask(description)
 
     if (task === undefined) return undefined
 
@@ -29,14 +29,8 @@ export class TaskService {
     return deletedTask
   }
 
-  checkTask (id: number): Task | undefined {
-    const checkedTask = this.taskRepository.checkTask(id)
-    console.log('task checked')
-    return checkedTask
-  }
-
-  updateTask (id: number, description: string): Task | undefined {
-    const updatedTask = this.taskRepository.updateTask(id, description)
+  updateTask (id: number, description: string, completed: boolean): Task | undefined {
+    const updatedTask = this.taskRepository.updateTask(id, description, completed)
     return updatedTask
   }
 }

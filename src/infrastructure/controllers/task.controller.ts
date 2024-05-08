@@ -21,9 +21,8 @@ export class TaskController {
   }
 
   async createTask (req: Request, res: Response): Promise<void> {
-    const taskId = Number(req.body.id)
     const taskDesc = String(req.body.description)
-    const newTask = taskService.createTask(taskId, taskDesc)
+    const newTask = taskService.createTask(taskDesc)
     if (newTask === undefined) {
       res.status(404).send('Error - Task not created')
     } else {
@@ -41,21 +40,13 @@ export class TaskController {
     }
   }
 
-  async checkTask (req: Request, res: Response): Promise<void> {
-    const checkId = Number(req.params.id)
-    const checkTask = taskService.checkTask(checkId)
-    if (checkTask !== undefined) {
-      res.status(200).json(checkTask)
-    } else {
-      res.status(404).end('Tarea no encontrada')
-    }
-  }
-
   async updateTask (req: Request, res: Response): Promise<void> {
     const updateId = Number(req.body.id)
     const updateDesc = String(req.body.description)
-    const updateTask = taskService.updateTask(updateId, updateDesc)
+    const updateCheck = Boolean(req.body.completed)
+    const updateTask = taskService.updateTask(updateId, updateDesc, updateCheck)
     if (updateTask !== undefined) {
+      console.log(updateCheck)
       res.status(200).json(updateTask)
     } else {
       res.status(404).end('Tarea no encontrada')

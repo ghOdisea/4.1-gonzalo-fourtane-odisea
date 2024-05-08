@@ -46,16 +46,12 @@ export class InMemoryTaskRepository implements TaskRepository {
     }
   }
 
-  createTask (id: number, description: string): Task | undefined {
-    const validID = tasks.find(task => task.id === id)
-    if (validID === undefined) {
-      const newTask = new Task(id, description)
-      tasks.push(newTask)
-      return newTask
-    } else {
-      console.error('ID already exists')
-      return undefined
-    }
+  createTask (description: string): Task | undefined {
+    const lastId = tasks.length > 0 ? tasks[tasks.length - 1].id : 0
+    const newId = lastId + 1
+    const newTask = new Task(newId, description)
+    tasks.push(newTask)
+    return newTask
   }
 
   deleteTask (id: number): boolean {
@@ -79,10 +75,11 @@ export class InMemoryTaskRepository implements TaskRepository {
     }
   }
 
-  updateTask (id: number, description: string): Task | undefined {
+  updateTask (id: number, description: string, completed: boolean): Task | undefined {
     const task = tasks.find(task => task.id === id)
     if (task !== undefined) {
       task.description = description
+      task.completed = completed
       return task
     } else {
       console.log('Task not found')
