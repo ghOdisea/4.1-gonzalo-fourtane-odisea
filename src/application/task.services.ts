@@ -25,8 +25,8 @@ export class TaskService {
   }
 
   deleteTask (id: number): boolean {
-    const deletedTask = this.taskRepository.deleteTask(id)
-    return deletedTask
+    const deleteConfirm = this.taskRepository.deleteTask(id)
+    return deleteConfirm
   }
 
   updateTask (id: number, description: string, completed: boolean): Task | undefined {

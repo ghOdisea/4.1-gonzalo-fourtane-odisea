@@ -60,7 +60,6 @@ export class InMemoryTaskRepository implements TaskRepository {
       tasks.splice(indexDeleteId, 1)
       return true
     } else {
-      console.error('Task not found')
       return false
     }
   }
